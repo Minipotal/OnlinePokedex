@@ -5,25 +5,25 @@ function App() {
     return (
         //mettre le routeur
         <
-        div className = "App" >
+        Router >
         <
-        header className = "App-header" >
+        Switch >
         <
-        img src = { logo }
-        className = "App-logo"
-        alt = "logo" / >
+        Route exact path = "/" > { /*ici on met l'URL dans le navigateur*/ } <
+        Home / > { /*ici on donne la page à afficher en fonction de cette URL*/ } <
+        /Route> <
+        Route path = "/about" >
         <
-        p >
-        Edit < code > src / App.js < /code> and save to reload. <
-        /p> <
-        a className = "App-link"
-        href = "https://reactjs.org"
-        target = "_blank"
-        rel = "noopener noreferrer" >
-        Learn React <
-        /a> <
-        /header> <
-        /div>
+        About / >
+        <
+        /Route> <
+        Route path = "/dashboard" >
+        <
+        Dashboard / >
+        <
+        /Route> <
+        /Switch> <
+        /Router>
     );
 }
 
