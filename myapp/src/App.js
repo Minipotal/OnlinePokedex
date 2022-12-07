@@ -12,17 +12,17 @@ function App() {
         Route exact path = "/" > { /*ici on met l'URL dans le navigateur*/ } <
         Home / > { /*ici on donne la page à afficher en fonction de cette URL*/ } <
         /Route> <
-        Route path = "/about" >
+        Route path = "/Caught" >
         <
         About / >
         <
         /Route> <
-        Route path = "/dashboard" >
+        Route path = "/Pokedex" >
         <
         Dashboard / >
         <
-        /Route> <
-        /Switch> <
+        /Route> < /
+        Switch > <
         /Router>
     );
 }
