@@ -1,14 +1,16 @@
 /*import { useEffect } from "react";
 import { useState } from "react";
 
-const [pokemons, setPokemons] = useState([]);
+const [ pokemons, setPokemons ] = useState([]);
 
 //va s'executer seulement au lancement du composant (dep: [])
 useEffect(() => {
   // récupérer la liste des users seulement au chargement du composant ! 
-  const pokemons = getAll();
-  setPokemons(pokemons);
-}, []);*/
+  const pokemonsFetched = getAll();
+  pokemonsFetched
+    .then(result => setPokemons(result))
+    .catch(error=>console.error("Erreur avec notre API :",error.message));
+},[]);*/
 
 function Caught(props) {
   return <h1>Vos pokemons attrapes</h1>;/*
