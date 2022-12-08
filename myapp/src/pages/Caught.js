@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { getAll } from "../api/pokemon";
 
+//afficher tout les pokemons capturés avec un filtre
+
+
 function Caught(props) {
 
   const [pokemons, setPokemons] = useState([]);

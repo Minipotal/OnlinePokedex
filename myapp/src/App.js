@@ -5,9 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Pokedex from "./pages/Pokedex";
 import Caught from "./pages/Caught";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+
 
 import {
   BrowserRouter as Router,
