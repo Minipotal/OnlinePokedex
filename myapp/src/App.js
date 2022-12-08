@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Pokedex from "./pages/Pokedex";
+import Caught from "./pages/Caught";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,17 +23,13 @@ function App(props){
           <About />
         </Route>
         <Route path="/pokedex"> {<Route path="pages/:id" children={<Pokedex />} />}
-          <Dashboard />
+          <Pokedex />
+        </Route>
+        <Route path="/caught"> {<Route path="pages/:id" children={<Caught />} />}
+          <Caught />
         </Route>
       </Switch>
   </Router>
 }
-
-ReactDOM.render(
-  <BrowserRouter>
-    <Home />
-  </BrowserRouter>,
-  document.getElementById("root")
-);
 
 export default App;
