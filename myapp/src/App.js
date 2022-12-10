@@ -18,8 +18,8 @@ function App(props) {
   return <>
     <Router>
       <Switch>
-        <Route exact path="/"> {<Route path="/:id" children={<Home />} />/*ici on met l'URL dans le navigateur*/}
-          <Home /> {/*ici on donne la page à afficher en fonction de cette URL*/}
+        <Route exact path="/"> {<Route path="/:id" children={<Home />} />/ici on met l'URL dans le navigateur/}
+          <Home /> {/ici on donne la page à afficher en fonction de cette URL/}
         </Route>
         <Route path="/about"> {<Route path="pages/:id" children={<About />} />}
           <About />
@@ -35,4 +35,10 @@ function App(props) {
   </>
 }
 
+ReactDOM.render(
+  <Router>
+    <Home />
+  </Router>,
+  document.getElementById("root")
+);
 export default App;

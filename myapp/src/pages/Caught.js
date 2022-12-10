@@ -1,38 +1,75 @@
-import { useEffect, useState } from "react";
-import { getAll } from "../api/pokemon";
+import React, { useState } from "react";
+import "./App.css";
+import axios from "axios";
 
-//afficher tout les pokemons capturés avec un filtre
+const Caught = () => {
+  const [pokemon, setPokemon] = useState("pikachu");
+  const [pokemonData, setPokemonData] = useState([]);
+  const [pokemonType, setPokemonType] = useState("");
 
+  const handleChange = (e) => {
+    setPokemon(e.target.value.toLowerCase());
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getPokemon();
+  };
+  const getPokemon = async () => {
+    const toArray = [];
+    try {
+      const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+      const res = await axios.get(url);
+      toArray.push(res.data);
+      setPokemonType(res.data.types[0].type.name);
+      setPokemonData(toArray);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  console.log(pokemonData);
 
-function Caught(props) {
-
-  const [pokemons, setPokemons] = useState([]);
-  
-  //va s'executer seulement au lancement du composant (dep: [])
-  useEffect(() => {
-    // récupérer la liste des users seulement au chargement du composant ! 
-    const pokemonsFetched = getAll();
-    pokemonsFetched
-      .then(result => setPokemons(result))
-      .catch(error => console.error("Erreur avec notre API :", error.message));
-  }, []);
-
-  return <>
-    <h1>Vos pokemons attrapes</h1>;
-   <div className="pokemon-list">
-    <div class="flex">
-      {
-        pokemons.map((pokemon, key) => {
-          return <div key={key} className="bloc-pokemon">
-            <img className="avatar" src={pokemon.img} />
-            <h2>{pokemon.name}</h2>
-            <button /*onClick={() => addToPokedex(pokemon._id)}*/>Capturer !</button>
+  return (
+    <div className="App">
+      <form onSubmit={handleSubmit}>
+        <label>
+          <input
+            type="text"
+            onChange={handleChange}
+            placeholder="enter pokemon name"
+          />
+        </label>
+      </form>
+      {pokemonData.map((data) => {
+        return (
+          <div className="container">
+            <img src={data.sprites["front_default"]} />
+            <div className="divTable">
+              <div className="divTableBody">
+                <div className="divTableRow">
+                  <div className="divTableCell">Type</div>
+                  <div className="divTableCell">{pokemonType}</div>
+                </div>
+                <div className="divTableRow">
+                  <div className="divTableCell">Taille (en pouces)</div>
+                  <div className="divTableCell">
+                    {" "}
+                    {Math.round(data.height * 3.9)}"
+                  </div>
+                </div>
+                <div className="divTableRow">
+                  <div className="divTableCell">Poids</div>
+                  <div className="divTableCell">
+                    {" "}
+                    {Math.round(data.weight / 4.3)} lbs
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        })
-      }
+        );
+      })}
     </div>
-  </div>;
-  </>
-}
+  );
+};
 
 export default Caught;
