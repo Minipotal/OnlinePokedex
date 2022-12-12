@@ -16,13 +16,13 @@ function Pokedex(props) {
 
     return <div><h1>Pokedex</h1>
         <Menu />
-        <div className="pokemon-list">
+        <div>
             <div class="flex">
                 {pokedex.map((pokedex, key) => {
-                    return <div key={key} className="bloc-pokemon">
+                    return <div key={key}>
                         <h2>{pokedex.name}</h2>
                         <h3>{pokedex.type}</h3>
-                        { <img className="avatar" src={pokemon.img} /> }
+                        { <img className="avatar" src={pokedex.img} /> }
                     </div>
                 })}
             </div>
