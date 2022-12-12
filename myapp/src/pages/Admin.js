@@ -1,8 +1,10 @@
+//Page d'ajout de pokemons (nom, image, type, capturé ou non)
+
 import Menu from "../components/menu";
 import { useState, useEffect, } from "react";
-import { addToPokedex,getPokedex } from "../api/pokemon.js";
+import { addToPokedex, getPokedex, updateTypePokedex } from "../api/pokemon.js";
 
-function Pokedex(props) {
+function Admin(props) {
     const [pokedex, setPokedex] = useState([]);
 
     //va s'executer seulement au lancement du composant (dep: [])
@@ -23,12 +25,11 @@ function Pokedex(props) {
                         <h4>{pokedex.type}</h4>
                         { <img className="avatar" src={pokedex.img} /> }
                         <button onClick={()=>addToPokedex(pokedex)}>Capturer !</button>
+                        <button onClick={()=>updateTypePokedex(pokedex)}>Changer type !</button>
                     </div>
                 })}
             </div>
         </div>;
-
-
 }
 
-export default Pokedex;
+export default Admin;

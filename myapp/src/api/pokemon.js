@@ -82,3 +82,21 @@ export const deletePokemon = async (pokemon) => {
 }
 
 
+
+
+export const updateTypePokedex = async (pokemon) => {
+    const response = await fetch(
+        'http://localhost:4444/pokemon/update', {
+            method: 'UPDATE', 
+            headers: {
+                'Accept': 'application/json', 
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                "type":pokemon.type
+            })
+        }
+    )
+    const updateTypePokedex = await response.json()
+    return updateTypePokedex
+}

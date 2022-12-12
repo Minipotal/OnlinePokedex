@@ -7,7 +7,7 @@ function Menu(){
             <li><Link to="../">Acceuil</Link></li>
             <li><Link to="../pokedex">Pokedex</Link></li>
             <li><Link to="../pokemon">Pokemon</Link></li>
-            <li><Link to="../About">A propos</Link></li>
+            <li><Link to="../Admin">Admin</Link></li>
         </ul>
     </nav>
 }
