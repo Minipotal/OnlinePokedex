@@ -1,6 +1,6 @@
 import Menu from "../components/menu";
 import { useState,useEffect,} from "react";
-import { getAll,addToPokedex } from "../api/pokemon";
+import { getAll,addToPokedex, deletePokemon } from "../api/pokemon";
 //afficher tout les pokemons capturés avec un filtre
 
 
@@ -26,13 +26,12 @@ function Pokemon(props) {
       {
         pokemons.map((pokemon, key) => {
           return <div key={key} className="bloc-pokemon">
-            <h2>{pokemon.name}</h2>
-            <h3>{pokemon.type}</h3>
-            <button onClick={()=>addToPokedex(pokemon)}>Capturer !</button>
-            { <img className="avatar" src={pokemon.img} /> }
+            <h3>{pokemon.name}</h3>
+            <h4>{pokemon.type}</h4>
+            <img className="avatar" src={pokemon.img} />
+            <button onClick={()=>deletePokemon(pokemon)}>Relâcher !</button>
           </div>
-        })
-      }
+        })}
     </div>
   </div>;
   </>

@@ -1,6 +1,6 @@
 import Menu from "../components/menu";
 import { useState, useEffect, } from "react";
-import { getPokedex } from "../api/pokemon.js";
+import { addToPokedex,getPokedex } from "../api/pokemon.js";
 
 function Pokedex(props) {
     const [pokedex, setPokedex] = useState([]);
@@ -20,9 +20,10 @@ function Pokedex(props) {
             <div class="flex">
                 {pokedex.map((pokedex, key) => {
                     return <div key={key}>
-                        <h2>{pokedex.name}</h2>
-                        <h3>{pokedex.type}</h3>
+                        <h3>{pokedex.name}</h3>
+                        <h4>{pokedex.type}</h4>
                         { <img className="avatar" src={pokedex.img} /> }
+                        <button onClick={()=>addToPokedex(pokedex)}>Capturer !</button>
                     </div>
                 })}
             </div>

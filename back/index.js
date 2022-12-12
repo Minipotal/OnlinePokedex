@@ -10,6 +10,7 @@ app.use(cors())
 
 //insert function
 const bodyParser = require('body-parser');
+const { response } = require('express');
 app.use(bodyParser.urlencoded({ extended: true }));
 const jsonParser = bodyParser.json();
 
@@ -116,7 +117,7 @@ app.post('/pokedex/insert', jsonParser, (req, res) => {
   //on se connecte à la DB MongoDB
   const dbConnect = dbo.getDb();
   dbConnect
-    .collection("pokedex")
+    .collection("pokemon")
     .insertOne({...body})
     .then(function (result, err) {
       if (err) {
@@ -124,7 +125,7 @@ app.post('/pokedex/insert', jsonParser, (req, res) => {
       } else {
         res.json(result);
       }
-    });
+    }).catch(err=>res.json(err)); 
   });
 
 
