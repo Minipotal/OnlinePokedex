@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Pokedex from "./pages/Pokedex";
-import Caught from "./pages/Caught";
+import Pokemon from "./pages/Pokemon";
 
 
 import {
@@ -18,8 +18,8 @@ function App(props) {
   return <>
     <Router>
       <Switch>
-        <Route exact path="/"> {<Route path="/:id" children={<Home />} />/ici on met l'URL dans le navigateur/}
-          <Home /> {/ici on donne la page à afficher en fonction de cette URL/}
+        <Route exact path="/"> {<Route path="/:id" children={<Home />} />/*ici on met l'URL dans le navigateur*/}
+          <Home /> {/*ici on donne la page à afficher en fonction de cette URL*/}
         </Route>
         <Route path="/about"> {<Route path="pages/:id" children={<About />} />}
           <About />
@@ -27,8 +27,8 @@ function App(props) {
         <Route path="/pokedex"> {<Route path="pages/:id" children={<Pokedex />} />}
           <Pokedex />
         </Route>
-        <Route path="/caught"> {<Route path="pages/:id" children={<Caught />} />}
-          <Caught />
+        <Route path="/pokemon"> {<Route path="pages/:id" children={<Pokemon />} />}
+          <Pokemon />
         </Route>
       </Switch>
     </Router>
