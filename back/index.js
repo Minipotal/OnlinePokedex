@@ -1,14 +1,17 @@
+var cors = require('cors')
+
 const express = require("express");
 const dbo = require("./db/db");
-const {pokedex} = require('./tableaux-pokedex.js');
-const bodyParser = require('body-parser');
-const port = 4444;
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
-
-const jsonParser = bodyParser.json();
+const port = 4444;
 
 dbo.connectToServer();
+app.use(cors())
+
+//insert function
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+const jsonParser = bodyParser.json();
 
 app.get("/", function (req, res) {
   res.send("Hello World!");
@@ -19,9 +22,7 @@ app.listen(port, function () {
 });
 
 app.get("/pokemon/list", function (req, res) {
-  //on se connecte à la DB MongoDB
   const dbConnect = dbo.getDb();
-  //premier test permettant de récupérer mes pokemons !
   dbConnect
     .collection("pokemon")
     .find({}) // permet de filtrer les résultats
@@ -116,7 +117,7 @@ app.post('/pokedex/insert', jsonParser, (req, res) => {
   const dbConnect = dbo.getDb();
   dbConnect
     .collection("pokedex")
-    .insertMany(pokedex)
+    .insertOne({...body})
     .then(function (result, err) {
       if (err) {
         res.status(400).send("Error fetching pokemons!");

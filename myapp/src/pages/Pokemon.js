@@ -19,16 +19,17 @@ function Pokemon(props) {
 
   return <>
   
-    <h1>Vos pokemons attrapes</h1>,
+    <h1>Vos pokemons attrapes</h1>
     <Menu />,
    <div className="pokemon-list">
     <div class="flex">
       {
         pokemons.map((pokemon, key) => {
           return <div key={key} className="bloc-pokemon">
-            {/* <img className="avatar" src={pokemon.img} /> */}
             <h2>{pokemon.name}</h2>
-            <button onClick={()=>addToPokedex(pokemon._id)}>Capturer !</button>
+            <h3>{pokemon.type}</h3>
+            <button onClick={()=>addToPokedex(pokemon)}>Capturer !</button>
+            { <img className="avatar" src={pokemon.img} /> }
           </div>
         })
       }

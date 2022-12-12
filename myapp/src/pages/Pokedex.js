@@ -20,9 +20,9 @@ function Pokedex(props) {
             <div class="flex">
                 {pokedex.map((pokedex, key) => {
                     return <div key={key} className="bloc-pokemon">
-                        {/* <img className="avatar" src={pokemon.img} /> */}
                         <h2>{pokedex.name}</h2>
-                        {/* <button onClick={() => addToPokedex(pokemon._id)}>Capturer !</button> */}
+                        <h3>{pokedex.type}</h3>
+                        { <img className="avatar" src={pokemon.img} /> }
                     </div>
                 })}
             </div>

@@ -6,7 +6,7 @@ function Menu(){
         <ul>
             <li><Link to="../">Acceuil</Link></li>
             <li><Link to="../pokedex">Pokedex</Link></li>
-            <li><Link to="../pokemons">Pokemon attrapé !</Link></li>
+            <li><Link to="../pokemon">Pokemon</Link></li>
             <li><Link to="../About">A propos</Link></li>
         </ul>
     </nav>
