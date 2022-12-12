@@ -1,4 +1,3 @@
-//afficher tout le pokedex enregistré
 
 export const getAll = async () => {
     const response = await fetch(
@@ -63,18 +62,23 @@ export const addToPokemon = async (pokemon) => {
 }
 
 
-export const deletePokemon = async () => {
+export const deletePokemon = async (pokemon) => {
     const response = await fetch(
         'http://localhost:4444/pokemon/delete', {
             method: 'DELETE', 
             headers: {
                 'Accept': 'application/json', 
                 'Content-Type':'application/json'
-            }
+            },
+            body: JSON.stringify({
+                "img":pokemon.img,
+                "name":pokemon.name,
+                "type":pokemon.type
+            })
         }
     )
-    const pokemons = await response.json()
-    return pokemons
+    const pokemonDelete = await response.json()
+    return pokemonDelete
 }
 
 
