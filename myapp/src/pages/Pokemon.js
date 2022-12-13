@@ -2,6 +2,9 @@ import Menu from "../components/menu";
 import { useState,useEffect,} from "react";
 import { getAll, deletePokemon } from "../api/pokemon";
 import "../App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 function Pokemon(props) {
@@ -17,22 +20,21 @@ function Pokemon(props) {
   }, [count]);
 
   return <>
-      <Menu />
+    <Menu />
     <h1>Vos pokemons attrapes</h1>
-   <div>
-    <div class="flex">
-      {
-        pokemons.map((pokemon, key) => {
-          return <div key={key}>
-            <h3>{pokemon.name}</h3>
-            <h4>{pokemon.type}</h4>
-            <img className="avatar" src={pokemon.img} alt="" />
-            <br></br>
-            <button onClick={()=>{deletePokemon(pokemon);setCount(count+1)}}>Relâcher !</button>
-          </div>
-        })}
-    </div>
-  </div>;
+    <Row xs={4} md={4}>
+      {pokemons.map((pokemon, key) => {
+        return <Col sm={3}> <div className="card" key={key}>
+          <h3>{pokemon.name}</h3>
+          <h4>{pokemon.type}</h4>
+          {<img className="avatar" src={pokemon.img} alt="" />}
+          <br></br>
+          <button onClick={()=>{deletePokemon(pokemon);setCount(count+1)}}>Relâcher !</button>
+        </div>
+
+        </Col>
+      })}
+    </Row>
   </>
 }
 

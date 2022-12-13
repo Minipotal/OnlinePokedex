@@ -10,7 +10,7 @@ app.use(cors())
 
 const bodyParser = require('body-parser');
 const { response } = require('express');
-const { addNewPokemonToPokedex } = require('../myapp/src/api/pokemon');
+//const { addNewPokemonToPokedex } = require('../myapp/src/api/pokemon');
 app.use(bodyParser.urlencoded({ extended: true }));
 const jsonParser = bodyParser.json();
 
@@ -62,14 +62,6 @@ app.delete('/pokemon/delete', jsonParser, (req, res) => {
   res.json(body);
 });
 
-
-
-
-
-
-
-
-
 app.get("/pokedex/list", function (req, res) {
   const dbConnect = dbo.getDb();
   dbConnect
@@ -95,6 +87,7 @@ app.get("/pokedex/list", function (req, res) {
   console.log(data);
   addNewPokemonToPokedex({"name" : props.pokedex.name, "update" : {"name" : data.name, "type" :data.type, "img" : data.img}});
 }
+
 app.post('/pokedex/insert', jsonParser, (req, res) => {
   const body = req.body;
   console.log('Got body:', body.name);
@@ -122,8 +115,6 @@ app.delete('/pokedex/delete', jsonParser, (req, res) => {
 
   res.json(body);
 });
-
-
 
 onSubmit = (data) => {
   console.log(data);
