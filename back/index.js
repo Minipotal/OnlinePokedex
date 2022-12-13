@@ -61,18 +61,6 @@ app.delete('/pokemon/delete', jsonParser, (req, res) => {
   res.json(body);
 });
 
-app.post('/pokemon/update', jsonParser, (req, res) => {
-  const body = req.body;
-  console.log('Got body:', body.name);
-  const dbConnect = dbo.getDb();
-  dbConnect
-    .collection("pokemon")
-    .updateOne({numero:body.prevnumero, name:body.prevname, type:body.prevtype},{$set:{numero:body.newnumero, name:body.newname, type:body.newtype}});
-  res.json(body);
-});
-
-
-
 
 
 
@@ -124,12 +112,25 @@ app.delete('/pokedex/delete', jsonParser, (req, res) => {
   res.json(body);
 });
 
+
+
+const onSubmit = (data) => {
+  if (data.type2 === ""){
+      data.type = [{"name": data.type1}]
+  }else{
+      data.type = [{"name": data.type1},{"name" : data.type2}]
+  }
+  console.log(data);
+  updateTypePokedex({"name" : props.pokedex.name, "update" : {"name" : data.name, "type" :data.type, "img" : data.img}});
+}
+
 app.post('/pokedex/update', jsonParser, (req, res) => {
   const body = req.body;
-  console.log('Got body:', body.name);
+  console.log('Got body:', body);
   const dbConnect = dbo.getDb();
   dbConnect
     .collection("pokedex")
-    .updateOne({name:body.prevname, type:body.prevtype},{$set:{name:body.newname, type:body.newtype}});
+    .update({ name : body.name },
+            { $set: {name : body.update.name, type: body.update.type, img: body.update.img} })
   res.json(body);
 });
