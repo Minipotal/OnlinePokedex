@@ -1,6 +1,6 @@
 import Menu from "../components/menu";
 import { useState, useEffect, } from "react";
-import { addToPokedex, getPokedex, updateTypePokedex, addNewPokemonToPokedex } from "../api/pokemon.js";
+import { addToPokedex, getPokedex, updateTypePokedex } from "../api/pokemon.js";
 
 function Admin(props) {
     const [pokedex, setPokedex] = useState([]);
@@ -11,21 +11,21 @@ function Admin(props) {
             .catch(error => console.error("Erreur avec notre API :", error.message));
     }, []);
 
-    return <div><h1>Pokedex</h1>
+    return <>
         <Menu />
-        <button onClick={()=>addNewPokemonToPokedex(pokedex)}>Ajouter un Pokémon</button>
             <div class="flex">
                 {pokedex.map((pokedex, key) => {
                     return <div key={key}>
                         <h3>{pokedex.name}</h3>
                         <h4>{pokedex.type}</h4>
                         { <img className="avatar" src={pokedex.img} alt="" /> }
+                        <br></br>
                         <button onClick={()=>addToPokedex(pokedex)}>Capturer !</button>
-                        <button onClick={()=>updateTypePokedex(pokedex)}>Changer nom, types, images !</button>
+                        <button onClick={()=>updateTypePokedex(pokedex)}>Changer type !</button>
                     </div>
                 })}
-            </div>
-        </div>;
+            </div>;
+        </>
 }
 
 export default Admin;

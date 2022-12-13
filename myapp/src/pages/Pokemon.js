@@ -1,6 +1,7 @@
 import Menu from "../components/menu";
 import { useState,useEffect,} from "react";
 import { getAll, deletePokemon } from "../api/pokemon";
+import "../App.css";
 
 
 function Pokemon(props) {
@@ -16,9 +17,8 @@ function Pokemon(props) {
   }, [count]);
 
   return <>
-  
+      <Menu />
     <h1>Vos pokemons attrapes</h1>
-    <Menu />,
    <div>
     <div class="flex">
       {
@@ -27,6 +27,7 @@ function Pokemon(props) {
             <h3>{pokemon.name}</h3>
             <h4>{pokemon.type}</h4>
             <img className="avatar" src={pokemon.img} alt="" />
+            <br></br>
             <button onClick={()=>{deletePokemon(pokemon);setCount(count+1)}}>Relâcher !</button>
           </div>
         })}
