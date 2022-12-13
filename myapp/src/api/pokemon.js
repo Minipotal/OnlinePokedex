@@ -84,34 +84,39 @@ export const deletePokemon = async (pokemon) => {
 
 
 
-// export const updatePokedex = async (pokemon) => {
-//     const response = await fetch(
-//         'http://localhost:4444/pokemon/update', {
-//             method: 'POST', 
-//             headers: {
-//                 'Accept': 'application/json', 
-//                 'Content-Type':'application/json'
-//             },
-//             body: JSON.stringify((pokemon))
-//         }
-//     )
-//     .then(response => response.json())
-//     .then(response => console.log(JSON.stringify(response)))
-// }
+export const updatePokedex = async (pokemon) => {
+    const response = await fetch(
+        'http://localhost:4444/pokemon/update', {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json', 
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify((pokemon))
+        }
+    )
+    .then(response => response.json())
+    .then(response => console.log(JSON.stringify(response)))
+}
 
 
 
-// export const addNewPokemonToPokedex = async (pokemon) => {
-//     const response = await fetch(
-//         'http://localhost:4444/pokedex/insert', {
-//             method: 'POST', 
-//             headers: {
-//                 'Accept': 'application/json',
-//                 'Content-Type':'application/json'
-//             },
-//             body: JSON.stringify(data);
-//         }
-//     )
-//     .then(response => response.json())
-//     .then(response => console.log(JSON.stringify(response)))
-// }
+export const addNewPokemonToPokedex = async (pokemon) => {
+    const response = await fetch(
+        'http://localhost:4444/pokedex/insert', {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+    .then((response) => response.json())
+    .then(data) => 
+        console.log("Sucess", data);
+})
+    .catch((error) =>{
+        console.log("Error:", error, data)
+    })
+
+}
