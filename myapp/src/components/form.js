@@ -1,12 +1,11 @@
 import onSubmit from "../../../back/index"
+import { getPokedex } from "../api/pokemon"
 
 <form method="post" action="/sessions" onSubmit={this.handleSubmit}>
   <p className="field">
     <label>
       Nom du Pokémon
-      <input
-        type="pokemonName"
-        name="pokemonName"
+      <input {...require("name")} defaultValue={getPokedex.name}
         required
         autoFocus
         value={this.state.pokemonName}
