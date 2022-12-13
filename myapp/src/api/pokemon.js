@@ -84,7 +84,7 @@ export const deletePokemon = async (pokemon) => {
 
 
 
-/*export const updateTypePokedex = async (pokemon) => {
+export const updatePokedex = async (pokemon) => {
     const response = await fetch(
         'http://localhost:4444/pokemon/update', {
             method: 'POST', 
@@ -109,9 +109,9 @@ export const addNewPokemonToPokedex = async (pokemon) => {
                 'Accept': 'application/json',
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify(pokemon)
+            body: JSON.stringify(data);
         }
     )
     .then(response => response.json())
     .then(response => console.log(JSON.stringify(response)))
-}*/
+}
