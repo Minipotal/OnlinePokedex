@@ -97,7 +97,21 @@ export const updateTypePokedex = async (pokemon) => {
     )
     .then(response => response.json())
     .then(response => console.log(JSON.stringify(response)))
+}
 
-    const updateTypePokedex = await response.json()
-    return updateTypePokedex
+
+
+export const addNewPokemonToPokedex = async (pokemon) => {
+    const response = await fetch(
+        'http://localhost:4444/pokedex/insert', {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(pokemon)
+        }
+    )
+    .then(response => response.json())
+    .then(response => console.log(JSON.stringify(response)))
 }

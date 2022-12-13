@@ -10,6 +10,7 @@ app.use(cors())
 
 const bodyParser = require('body-parser');
 const { response } = require('express');
+const { addNewPokemonToPokedex } = require('../myapp/src/api/pokemon');
 app.use(bodyParser.urlencoded({ extended: true }));
 const jsonParser = bodyParser.json();
 
@@ -84,6 +85,16 @@ app.get("/pokedex/list", function (req, res) {
 
 });
 
+
+ onSubmit = (data) => {
+  if (data.type2 === ""){
+      data.type = [{"name": data.type1}]
+  }else{
+      data.type = [{"name": data.type1},{"name" : data.type2}]
+  }
+  console.log(data);
+  addNewPokemonToPokedex({"name" : props.pokedex.name, "update" : {"name" : data.name, "type" :data.type, "img" : data.img}});
+}
 app.post('/pokedex/insert', jsonParser, (req, res) => {
   const body = req.body;
   console.log('Got body:', body.name);
@@ -114,12 +125,7 @@ app.delete('/pokedex/delete', jsonParser, (req, res) => {
 
 
 
-const onSubmit = (data) => {
-  if (data.type2 === ""){
-      data.type = [{"name": data.type1}]
-  }else{
-      data.type = [{"name": data.type1},{"name" : data.type2}]
-  }
+onSubmit = (data) => {
   console.log(data);
   updateTypePokedex({"name" : props.pokedex.name, "update" : {"name" : data.name, "type" :data.type, "img" : data.img}});
 }
