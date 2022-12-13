@@ -1,44 +1,22 @@
 import onSubmit from "../../../back/index"
-import { getPokedex } from "../api/pokemon"
+import { onSubmit } from "../api/pokemon"
 
-<form method="post" action="/sessions" onSubmit={this.handleSubmit}>
-  <p className="field">
-    <label>
+<form onSubmit={handleSubmit(onSubmit)}>
+  <div className="pokemon-list">
+    
       Nom du Pokémon
-      <input {...require("name")} defaultValue={getPokedex.name}
-        required
-        autoFocus
-        value={this.state.pokemonName}
-        onChange={this.handleFieldChange}
-      />
-    </label>
-  </p>
-  <p className="field">
-    <label>
+      <input {...require("name")} defaultValue={pokedex.name}/>
+    
+  </div>
+  <div className="field">
+    
       Type du Pokémon
-      <input
-        type="type"
-        name="type"
-        required
-        value={this.state.type}
-        onChange={this.handleFieldChange}
-      />
-    </label>
-  </p>
-  <p>
-  </p>
-  <p className="field">
-    <label>
+      <input {...require("type")} defaultValue={pokedex.type}/>
+   
+  </div>
+  <div className="field">
       Image du Pokémon
-      <input
-        type="pokemonImg"
-        name="pokemonImg"
-        required
-        autoFocus
-        value={this.state.pokemonImg}
-        onChange={this.handleFieldChange}
-      />
-    </label>
-  </p>
+      <input {...require("img")} defaultValue={pokedex.img}/>
+  </div>
   <button type="submit" value="Ajouter un nouveau Pokémon dans la liste Pokédex" />
 </form>

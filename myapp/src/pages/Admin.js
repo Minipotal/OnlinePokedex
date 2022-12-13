@@ -1,6 +1,6 @@
 import Menu from "../components/menu";
 import { useState, useEffect, } from "react";
-import { addToPokedex, getPokedex/*, updateTypePokedex*/ } from "../api/pokemon.js";
+import { addToPokedex, getPokedex, updatePokedex } from "../api/pokemon.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -17,17 +17,17 @@ function Admin(props) {
     return <>
         <Menu />
         <h1>Gérer le pokedex global</h1>
+        <button onClick={()=>addNewPokemonToPokedex(pokedex)}>Ajouter un pokemon !</button>
         <Row xs={4} md={4}>
             {pokedex.map((poke, key) => {
                 return <Col sm={3}> <div className="card" key={key}>
-                    <button /*onClick={()=>addNewPokemonToPokedex(pokedex)}*/>Ajouter un pokemon !</button>
                     <h3>{poke.name}</h3>
                     <h4>{poke.type}</h4>
                     {<img className="avatar" src={poke.img} alt="" />}
                     <br></br>
                     <button onClick={() => addToPokedex(poke)}>Capturer !</button>
                     <br></br>
-                    <button /*onClick={()=>updateTypePokedex(pokedex)}*/>Changer type !</button>
+                    <button onClick={()=>updatePokedex(pokedex)}>Changer type !</button>
                 </div>
 
                 </Col>
