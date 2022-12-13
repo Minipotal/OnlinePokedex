@@ -20,13 +20,13 @@ function Pokedex(props) {
     <Menu />
     <h1>Pokedex</h1>
     <Row xs={4} md={4}>
-      {pokedex.map((pokedex, key) => {
+      {pokedex.map((poke, key) => {
         return <Col sm={3}> <div className="card" key={key}>
-          <h3>{pokedex.name}</h3>
-          <h4>{pokedex.type}</h4>
-          {<img className="avatar" src={pokedex.img} alt="" />}
+          <h3>{poke.name}</h3>
+          <h4>{poke.type}</h4>
+          {<img className="avatar" src={poke.img} alt="" />}
           <br></br>
-          <button onClick={() => addToPokedex(pokedex)}>Capturer !</button>
+          <button onClick={() => addToPokedex(poke)}>Capturer !</button>
         </div>
 
         </Col>
