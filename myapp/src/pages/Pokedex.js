@@ -5,9 +5,7 @@ import { addToPokedex,getPokedex } from "../api/pokemon.js";
 function Pokedex(props) {
     const [pokedex, setPokedex] = useState([]);
 
-    //va s'executer seulement au lancement du composant (dep: [])
     useEffect(() => {
-        // récupérer la liste des users seulement au chargement du composant ! 
         const pokedexFetched = getPokedex();
         pokedexFetched
             .then(result => setPokedex(result))
@@ -21,7 +19,7 @@ function Pokedex(props) {
                     return <div key={key}>
                         <h3>{pokedex.name}</h3>
                         <h4>{pokedex.type}</h4>
-                        { <img className="avatar" src={pokedex.img} /> }
+                        { <img className="avatar" src={pokedex.img} alt="" /> }
                         <button onClick={()=>addToPokedex(pokedex)}>Capturer !</button>
                     </div>
                 })}
@@ -30,5 +28,4 @@ function Pokedex(props) {
 
 
 }
-
 export default Pokedex;

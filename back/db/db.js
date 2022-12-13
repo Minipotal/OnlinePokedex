@@ -14,8 +14,6 @@ module.exports = {
       if (err || !db) {
         return err;
       }
-      
-      //remplacer whatever par le nom de votre DB !
       dbConnection = db.db("PasSQL");
       console.log("Successfully connected to MongoDB.");
     });
