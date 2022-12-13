@@ -20,6 +20,7 @@ function Admin(props) {
         <Row xs={4} md={4}>
             {pokedex.map((poke, key) => {
                 return <Col sm={3}> <div className="card" key={key}>
+                    <button /*onClick={()=>addNewPokemonToPokedex(pokedex)}*/>Changer type !</button>
                     <h3>{poke.name}</h3>
                     <h4>{poke.type}</h4>
                     {<img className="avatar" src={poke.img} alt="" />}
