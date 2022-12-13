@@ -92,11 +92,12 @@ export const updateTypePokedex = async (pokemon) => {
                 'Accept': 'application/json', 
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify({
-                "type":pokemon.type
-            })
+            body: JSON.stringify((pokemon))
         }
     )
+    .then(response => response.json())
+    .then(response => console.log(JSON.stringify(response)))
+
     const updateTypePokedex = await response.json()
     return updateTypePokedex
 }

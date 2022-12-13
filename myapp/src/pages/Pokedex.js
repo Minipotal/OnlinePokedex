@@ -20,6 +20,7 @@ function Pokedex(props) {
                         <h3>{pokedex.name}</h3>
                         <h4>{pokedex.type}</h4>
                         { <img className="avatar" src={pokedex.img} alt="" /> }
+                        <br></br>
                         <button onClick={()=>addToPokedex(pokedex)}>Capturer !</button>
                     </div>
                 })}
