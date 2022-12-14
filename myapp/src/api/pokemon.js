@@ -110,7 +110,7 @@ export const updatePokedex = async (data) => {
 
 export const addNewPokemonToPokedex = async (data) => {
     const response = await fetch(
-        'http://localhost:4444/pokedex/insert', {
+        'http://localhost:4444/pokemon/insert', {
             method: 'POST', 
             headers: {
                 'Accept': 'application/json',

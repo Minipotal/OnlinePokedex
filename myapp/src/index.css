@@ -11,3 +11,95 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background-color: grey;
+}
+
+nav {
+  background-color: #1c1e22;
+  padding: 16px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content:space-evenly;
+  margin: 0;
+}
+
+nav ul li a {
+    color: white;
+  font-weight: 700;
+  font-size: 130%;
+    text-decoration: none;
+}
+
+footer{
+  background-color: #141414 !important;
+  color: aliceblue;
+  padding: 3%;
+}
+
+.home{
+  background-image: url(https://i.imgur.com/cE2Cb9e.jpg)
+}
+
+.home h1{
+  text-align: center;
+  background-color: #141414 !important;
+  color: aliceblue !important;
+  padding: 0%;
+  border: #141414 solid 2px;
+  border-radius: 5px;
+}
+
+.homeDesign{
+  background-color: #d7d7d7;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 5%;
+  border: solid 2px #141414;
+  border-radius: 5px;
+  background-size: cover;
+}
+
+.megaMargin{
+  margin-bottom: 20%;
+  padding: 9%;
+}
+
+.pokedeximg{
+  width: 30%;
+}
+
+.pokemonimg{
+  width: 25%;
+}
+
+.arceusimg{
+  width: 30%;
+}
+
+.homeDesign img{
+  margin-bottom: 15%;
+}
+
+.buttonCool{
+  padding: 5%;
+  background-color: #1c1e22 !important;
+  border: #141414 solid 2px;
+  margin-bottom: 22%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.linkStyle{
+  color: aliceblue !important;
+  text-decoration: none;
+}
+
+.buttonCool:hover{
+  background-color: #fcba03 !important;
+}
