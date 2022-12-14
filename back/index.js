@@ -78,23 +78,6 @@ app.get("/pokedex/list", function (req, res) {
 });
 
 
-app.post('/pokedex/insert', jsonParser, (req, res) => {
-  const body = req.body;
-  console.log('Got body:', body.name);
-  const dbConnect = dbo.getDb();
-  dbConnect
-    .collection("pokemon")
-    .insertOne({...body})
-    .then(function (result, err) {
-      if (err) {
-        res.status(400).send("Error fetching pokemons!");
-      } else {
-        res.json(result);
-      }
-    }).catch(err=>res.json(err)); 
-  });
-
-
 app.delete('/pokedex/delete', jsonParser, (req, res) => {
   const body = req.body;
   console.log('Got body:', body.name);
