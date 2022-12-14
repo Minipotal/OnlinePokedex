@@ -41,7 +41,7 @@ app.post('/pokemon/insert', jsonParser, (req, res) => {
   const body = req.body;
   console.log('Got body:', body);
   const dbConnect = dbo.getDb();
-  const pokemon = dbConnect.collection('Pokemon')
+  const pokemon = dbConnect.collection('pokemon')
   pokemon.insertOne(body)
     .then(function (err, result){
       if (err) {
@@ -77,16 +77,6 @@ app.get("/pokedex/list", function (req, res) {
 
 });
 
-
- onSubmit = (data) => {
-  if (data.type2 === ""){
-      data.type = [{"name": data.type1}]
-  }else{
-      data.type = [{"name": data.type1},{"name" : data.type2}]
-  }
-  console.log(data);
-  addNewPokemonToPokedex({"name" : props.pokedex.name, "update" : {"name" : data.name, "type" :data.type, "img" : data.img}});
-}
 
 app.post('/pokedex/insert', jsonParser, (req, res) => {
   const body = req.body;
@@ -131,3 +121,21 @@ app.post('/pokedex/update', jsonParser, (req, res) => {
             { $set: {"name" : body.name, "type": body.type, "img": body.img} })
   res.json(body);
 });
+
+
+
+onSubmit = (data) => {
+  console.log(data);
+  addNewPokemonToPokedex({"name" : props.pokedex.name, "insert" : {"name" : data.name, "type" :data.type, "img" : data.img}});
+}
+app.post('/pokedex/insert', jsonParser, (req, res) => {
+  const body = req.body;
+  console.log('Got body:', body.name);
+  const dbConnect = dbo.getDb();
+  dbConnect
+    .collection("pokedex")
+    .insertOne({ "name" : body.oldName },
+    { $set: {"name" : body.name, "type": body.type, "img": body.img} })
+res.json(body);
+});
+  
