@@ -1,4 +1,4 @@
-import { useState, useEffect, useParams, getOne } from "react";
+
 import { useForm } from "react-hook-form"
 import { updatePokedex } from "../api/pokemon"
 
@@ -30,7 +30,7 @@ function UpdatePokedex(props) {
           Image du Pokémon
           <input {...register("img")} defaultValue={props.poke.img}/>
       </div>
-      <input type="submit" value="Modifier" />
+      <button type="submit">Modifier !</button>
     </form>
 } 
 
