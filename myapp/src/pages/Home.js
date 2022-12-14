@@ -4,7 +4,7 @@ import "../App.css";
 function Home(props){
     return <>
         <Menu />
-    <div><h1>Acceuil</h1>
+    <div><h1>Accueil</h1>
     </div>;
     </>
 }
