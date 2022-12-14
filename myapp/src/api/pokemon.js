@@ -13,7 +13,7 @@ export const getAll = async () => {
     return pokemons
 }
 
-export const addToPokedex = async (pokemon) => {
+export const addToPokedex = async () => {
     const response = await fetch(
         'http://localhost:4444/pokedex/insert', {
             method: 'POST', 
@@ -21,7 +21,7 @@ export const addToPokedex = async (pokemon) => {
                 'Accept': 'application/json',
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify(pokemon)
+            body: JSON.stringify()
         }
     )
     const pokedex = await response.json()
@@ -84,7 +84,7 @@ export const deletePokemon = async (pokemon) => {
 
 
 
-export const updatePokedex = async (pokemon) => {
+export const updatePokedex = async (data) => {
     const response = await fetch(
         'http://localhost:4444/pokemon/update', {
             method: 'POST', 
@@ -92,16 +92,23 @@ export const updatePokedex = async (pokemon) => {
                 'Accept': 'application/json', 
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify((pokemon))
+            body: JSON.stringify((data))
         }
     )
-    .then(response => response.json())
-    .then(response => console.log(JSON.stringify(response)))
+    .then((response) => response.json())
+    .then((data) => {
+
+        console.log("Sucess", data);
+})
+    .catch((error) =>{
+        console.log("Error:", error, data);
+    });
 }
 
 
 
-export const addNewPokemonToPokedex = async (pokemon) => {
+
+export const addNewPokemonToPokedex = async (data) => {
     const response = await fetch(
         'http://localhost:4444/pokedex/insert', {
             method: 'POST', 
@@ -112,11 +119,11 @@ export const addNewPokemonToPokedex = async (pokemon) => {
             body: JSON.stringify(data),
         })
     .then((response) => response.json())
-    .then(data) => 
+    .then((data) => {
+
         console.log("Sucess", data);
 })
     .catch((error) =>{
-        console.log("Error:", error, data)
-    })
-
+        console.log("Error:", error, data);
+    });
 }

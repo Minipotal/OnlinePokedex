@@ -1,9 +1,10 @@
 import Menu from "../components/menu";
 import { useState, useEffect, } from "react";
-import { addToPokedex, getPokedex, updatePokedex } from "../api/pokemon.js";
+import { addToPokedex, getPokedex, updatePokedex, addNewPokemonToPokedex } from "../api/pokemon.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import UpdatePokedex from '../components/formUpdate';
 
 function Admin(props) {
     const [pokedex, setPokedex] = useState([]);
@@ -33,6 +34,7 @@ function Admin(props) {
                 </Col>
             })}
         </Row>
+        <UpdatePokedex />
     </>
 }
 export default Admin;
