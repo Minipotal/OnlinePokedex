@@ -127,7 +127,7 @@ app.post('/pokedex/update', jsonParser, (req, res) => {
   const dbConnect = dbo.getDb();
   dbConnect
     .collection("pokedex")
-    .update({ name : body.name },
-            { $set: {name : body.update.name, type: body.update.type, img: body.update.img} })
+    .update({ name : body.oldName },
+            { $set: {name : body.name, type: body.type, img: body.img} })
   res.json(body);
 });

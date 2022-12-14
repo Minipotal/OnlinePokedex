@@ -1,9 +1,8 @@
-import { useState, useEffect, useParams, useForm, getOne } from "react";
+import { useState, useEffect, useParams, getOne } from "react";
+import { useForm } from "react-hook-form"
 import { updatePokedex } from "../api/pokemon"
 
 function UpdatePokedex(props) {
-    const [pokedex, setPokedex] = useState(null);
-    let { id } = useParams();
     const { register, handleSubmit }= useForm();
     const onSubmit = async (data) => {
         const res = await updatePokedex(data);
@@ -11,32 +10,27 @@ function UpdatePokedex(props) {
             console.log("updated !")
         }
     }
-  
-    useEffect(() => {
-      const pokedexFetched = getOne(id);
-      pokedexFetched
-        .then(result => setPokedex(result))
-        .catch(error => console.error("Erreur avec notre API :", error.message));
-    }, []);
 
     return <form onSubmit={handleSubmit(onSubmit)}>
+        
+      <input type="hidden" {...register("oldName")} value={props.poke.name}/>
       <div className="pokemon-list">
         
           Nom du Pokémon
-          <input {...require("name")} defaultValue={pokedex.name}/>
+          <input {...register("name")} defaultValue={props.poke.name}/>
         
       </div>
       <div className="field">
         
           Type du Pokémon
-          <input {...require("type")} defaultValue={pokedex.type}/>
+          <input {...register("type")} defaultValue={props.poke.type}/>
 
       </div>
       <div className="field">
           Image du Pokémon
-          <input {...require("img")} defaultValue={pokedex.img}/>
+          <input {...register("img")} defaultValue={props.poke.img}/>
       </div>
-      <button type="submit" value="Ajouter un nouveau Pokémon dans la liste Pokédex" />
+      <input type="submit" value="Modifier" />
     </form>
 } 
 
