@@ -4,6 +4,7 @@ import { addToPokedex, getPokedex } from "../api/pokemon.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import UpdatePokedex from '../components/formUpdate';
 import AddNewPokemon from "../components/addPokemon";
 
@@ -20,7 +21,8 @@ function Admin(props) {
         <Menu />
         <h1>Gérer le pokedex global</h1>
         <AddNewPokemon poke={poke}/>
-        <Row xs={4} md={4}>
+        <Container>
+        <Row xs={1} sm={2} md={3} lg={4}>
             {poke.map((poke, key) => {
                 return <Col sm={3}> <div className="card" key={key}>
                     <h3>{poke.name}</h3>
@@ -29,11 +31,13 @@ function Admin(props) {
                     <br></br>
                     <button onClick={() => addToPokedex(poke)}>Capturer !</button>
                     <br></br>
+                    <UpdatePokedex poke={poke} />
                 </div>
-                <UpdatePokedex poke={poke} />
+                
                 </Col>
             })}
         </Row>
+        </Container>
     </>
 }
 export default Admin;

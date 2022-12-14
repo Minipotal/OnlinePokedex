@@ -24,7 +24,7 @@ function Pokemon(props) {
     <Menu />
     <h1>Vos pokemons attrapes</h1>
     <Container>
-    <Row xs={1} md={4}>
+    <Row xs={1} sm={2} md={3} lg={4}>
       {pokemons.map((pokemon, key) => {
         return <Col sm={3}> <div className="card" key={key}>
           <h3>{pokemon.name}</h3>

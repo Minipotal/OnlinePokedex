@@ -21,7 +21,7 @@ function Pokedex(props) {
     <Menu />
     <h1>Pokedex</h1>
     <Container>
-    <Row xs={1} md={4}>
+    <Row xs={1} sm={2} md={3} lg={4}>
       {pokedex.map((poke, key) => {
         return <Col sm={3}> <div className="card" key={key}>
           <h3>{poke.name}</h3>

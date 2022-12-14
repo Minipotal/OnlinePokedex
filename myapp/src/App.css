@@ -27,7 +27,7 @@ body {
 }
 
 nav {
-  background-color: #1c1e22;
+  background-color: black;
   padding: 16px;
 }
 
@@ -35,17 +35,63 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 1rem;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   margin: 0;
 }
 
 nav ul li a {
-    color: white;
+  color: white;
   font-weight: 700;
   font-size: 130%;
-    text-decoration: none;
+  text-decoration: none;
 }
 
-h1{
+div.formSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.formSubmit form{
   text-align: center;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+
+h1 {
+  text-align: center;
+}
+
+.card {
+  list-style: none;
+  padding: 40px;
+  background-color: #f4f4f4;
+  color: #222;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  
+}
+
+.card-title {
+  text-transform: capitalize;
+  margin-bottom: 0px;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+form {
+  display: block;
+}
+
+#root{
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
