@@ -22,7 +22,8 @@ function Pokemon(props) {
   return <>
     <Menu />
     <h1>Vos pokemons attrapes</h1>
-    <Row xs={4} md={4}>
+    <Container>
+    <Row xs={1} md={4}>
       {pokemons.map((pokemon, key) => {
         return <Col sm={3}> <div className="card" key={key}>
           <h3>{pokemon.name}</h3>
@@ -35,6 +36,7 @@ function Pokemon(props) {
         </Col>
       })}
     </Row>
+    </Container>
   </>
 }
 

@@ -5,6 +5,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 function Pokedex(props) {
   const [pokedex, setPokedex] = useState([]);
@@ -19,7 +20,8 @@ function Pokedex(props) {
   return <>
     <Menu />
     <h1>Pokedex</h1>
-    <Row xs={4} md={4}>
+    <Container>
+    <Row xs={1} md={4}>
       {pokedex.map((poke, key) => {
         return <Col sm={3}> <div className="card" key={key}>
           <h3>{poke.name}</h3>
@@ -32,6 +34,7 @@ function Pokedex(props) {
         </Col>
       })}
     </Row>
+    </Container>
   </>
 }
 export default Pokedex;
