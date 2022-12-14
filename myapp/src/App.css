@@ -21,31 +21,3 @@
 .App-link {
   color: #61dafb;
 }
-
-body {
-  background-color: grey;
-}
-
-nav {
-  background-color: #1c1e22;
-  padding: 16px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  justify-content:space-evenly;
-  margin: 0;
-}
-
-nav ul li a {
-    color: white;
-  font-weight: 700;
-  font-size: 130%;
-    text-decoration: none;
-}
-
-h1{
-  text-align: center;
-}
