@@ -30,7 +30,7 @@ function UpdatePokedex(props) {
         
           Type du Pokémon
           <input {...require("type")} defaultValue={pokedex.type}/>
-          
+
       </div>
       <div className="field">
           Image du Pokémon
@@ -38,6 +38,6 @@ function UpdatePokedex(props) {
       </div>
       <button type="submit" value="Ajouter un nouveau Pokémon dans la liste Pokédex" />
     </form>
-}
+} 
 
 export default UpdatePokedex;
